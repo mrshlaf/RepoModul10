@@ -6,11 +6,9 @@
 #define RANGE (MAX_ASCII - MIN_ASCII + 1)
 
 // Function to decrypt the message
-void decrypt(char *message, char *key)
-{
+void decrypt(char *message, char *key) {
     int keyLength = strlen(key);
-    for (int i = 0; message[i] != '\0'; i++)
-    {
+    for (int i = 0; message[i] != '\0'; i++) {
         message[i] = MIN_ASCII + ((message[i] - MIN_ASCII - (key[i % keyLength] - MIN_ASCII) + RANGE) % RANGE);
     }
 }
